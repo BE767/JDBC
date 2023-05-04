@@ -1,9 +1,10 @@
 <%-- 
-    Document   : rolList
-    Created on : May 2, 2023, 6:09:56 PM
-    Author     : gerdoc
+    Document   : UsuarioList
+    Created on : 3 may. 2023, 21:11:35
+    Author     : Evelyn
 --%>
-
+<%@page import="org.gerdoc.dao.Usuario"%>
+<%@page import="org.gerdoc.dao.service.UsuarioService"%>
 <%@page import="org.gerdoc.dao.Rol"%>
 <%@page import="java.util.List"%>
 <%@page import="org.gerdoc.dao.service.RolService"%>
@@ -21,16 +22,19 @@
                 <td>Descripción</td>
             </tr>
             <%
-                RolService rolService = new RolService();
-                List<Rol>List = rolService.getRolList();
+                UsuarioService usuarioService = new UsuarioService ();
+                List<Usuario>List = usuarioService.getUsuarioList();
                 if(List != null && List.size()> 0){
-                for(Rol rol : List)
+                for(Usuario usuario : List)
                 {
             
             %>
             <tr>
-                <td> <%=rol.getRol()%></td>
-                <td> <%=rol.getDescripcion()%></td>
+                <td> <%=usuario.getApellidoM()  %></td>
+                <td> <%=usuario.getApellidoP() %></td>
+                <td> <%=usuario.getNombre() %></td>
+                <td> <%=usuario.getEdad() %></td>
+                <td> <%=usuario.getFecha() %></td>
             </tr>
             <%}}
              %>
